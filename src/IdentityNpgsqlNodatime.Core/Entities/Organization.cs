@@ -1,7 +1,10 @@
-﻿namespace IdentityNpgsqlNodatime.Core.Entities
+﻿using IdentityNpgsqlNodatime.Core.Shared;
+
+namespace IdentityNpgsqlNodatime.Core.Entities
 {
-    public class Organization
+    public class Organization : BaseEntityWithTimestamps
     {
-        
+        public string Name { get; set; }
+        public string Email { get; set; }
     }
 }
