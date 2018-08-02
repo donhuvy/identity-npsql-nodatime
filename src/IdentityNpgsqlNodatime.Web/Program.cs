@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore;
+﻿using System;
+using System.Linq;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 
 namespace IdentityNpgsqlNodatime.Web
@@ -7,7 +9,22 @@ namespace IdentityNpgsqlNodatime.Web
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+            Console.Title = "IdentityServer";
+
+            var seed = args.Contains("seed");
+            if (seed)
+            {
+                args = args.Except(new[] { "seed" }).ToArray();
+            }
+
+            var host = CreateWebHostBuilder(args).Build();
+
+            if (seed)
+            {
+                SeedData.EnsureSeedData(host.Services);
+            }
+
+            host.Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args)

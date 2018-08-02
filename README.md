@@ -7,7 +7,7 @@ After cloning or downloading the sample you will need to update the database in 
 Ensure you add a .env in the root of the `Link.Web` project. Than add the necessary environment variables:
 
 ```
-DATABASE_URL=User ID=postgres;Password=;Host=localhost;Port=5432;Database=link_development;
+DATABASE_URL=User ID=postgres;Password=;Host=localhost;Port=5432;Database=identity_npgsql_nodatime_development;
 ```
 
 Open a terminal in the Link.Web folder and execute the following commands:
